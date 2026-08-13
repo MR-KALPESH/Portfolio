@@ -1,0 +1,40 @@
+/* Ribbon Strip Marquee Animation */
+.marquee-container {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.marquee-content {
+    display: flex;
+    animation: marquee 30s linear infinite;
+    white-space: nowrap;
+}
+
+.marquee-text {
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.85);
+    padding: 0 0.5rem;
+    flex-shrink: 0;
+    text-transform: uppercase;
+}
+
+@media (min-width: 1024px) {
+    .marquee-text {
+        font-size: 1rem;
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}

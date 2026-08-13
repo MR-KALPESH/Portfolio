@@ -1,0 +1,274 @@
+@import "tailwindcss";
+
+/* CSS Variables for theming */
+:root {
+  --bg-primary: #050505;
+  --bg-secondary: #0a0a0a;
+  --bg-card: rgba(18, 18, 18, 0.8);
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --text-muted: #666666;
+  --border-color: rgba(255, 255, 255, 0.06);
+  --glass-bg: rgba(10, 10, 10, 0.6);
+  --accent-gradient: linear-gradient(135deg, #ec4899, #f97316);
+}
+
+:root.light {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --text-primary: #0a0a0a;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+}
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  html {
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply m-0 p-0;
+    overflow-x: hidden;
+    font-family: 'Syne', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  #root {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  /* Prevent layout shift on media */
+  img,
+  video {
+    display: block;
+  }
+
+  /* GPU acceleration for animated elements */
+  .will-change-transform {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Isolate blur layers onto GPU — prevents full-page repaints */
+  [class*="blur-"] {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    isolation: isolate;
+  }
+
+  /* Optimize 3D canvas containers */
+  canvas {
+    will-change: contents;
+  }
+
+  /* Promote fixed/absolute decorative layers to GPU composite */
+  [class*="fixed"], [class*="absolute"] {
+    backface-visibility: hidden;
+  }
+}
+
+@layer utilities {
+
+  /* Theme-aware background */
+  .theme-bg {
+    background: var(--bg-primary);
+  }
+
+  .theme-bg-secondary {
+    background: var(--bg-secondary);
+  }
+
+  .theme-bg-card {
+    background: var(--bg-card);
+  }
+
+  /* Theme-aware text */
+  .theme-text {
+    color: var(--text-primary);
+  }
+
+  .theme-text-secondary {
+    color: var(--text-secondary);
+  }
+
+  .theme-text-muted {
+    color: var(--text-muted);
+  }
+
+  /* Theme-aware border */
+  .theme-border {
+    border-color: var(--border-color);
+  }
+
+  /* Glassmorphism navbar */
+  .glass-nav {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Vignette effect - only for dark mode */
+  .vignette {
+    background: radial-gradient(circle at 50% 50%,
+        transparent 0%,
+        transparent 40%,
+        rgba(0, 0, 0, 0.3) 70%,
+        rgba(0, 0, 0, 0.6) 100%);
+  }
+
+  :root.light .vignette {
+    background: radial-gradient(circle at 50% 50%,
+        transparent 0%,
+        transparent 40%,
+        rgba(255, 255, 255, 0.3) 70%,
+        rgba(255, 255, 255, 0.6) 100%);
+  }
+
+  /* Luxury serif italic */
+  .serif-italic {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+  }
+
+  /* Geometric sans for headline */
+  .headline-font {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  /* Noise texture — static image data, GPU-isolated, no SVG filter repaint */
+  .noise-texture {
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4t5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c/TV27AAACAAAAlklEQVR42p2T2e6CMBCFHZh9Cb3//1kn0AIFWmNS2OWFk2+mMCRDSZKmaRAEABAAUAJgDwACgD4AZADYiQAhAAbABLADYAkAOQBuAAQAAAAAAAAAAAAA+D8AwEAOAQYAgIAqABWALwCYANQAlgC4AawBiAKgIACQBAAAAJABkAFQAmAEYAiwCJALIA3gFQBNALIA5gKgA2ALQBqANABwAMwBKANAAlACQAYAEgBIAEwBoAIABwAMQLQAmAEAAAAArABcABgA=");
+    opacity: 0.04;
+    will-change: auto;
+    transform: translateZ(0);
+    pointer-events: none;
+  }
+
+  :root.light .noise-texture {
+    opacity: 0.025;
+  }
+
+  /* Glass card optimized for GPU (no backdrop-filter to prevent scroll lag) */
+  .glass-card {
+    background: rgba(18, 18, 18, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    transition: all 0.3s ease;
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  .glass-card:hover {
+    box-shadow:
+      0 12px 48px rgba(0, 0, 0, 0.5),
+      0 0 40px rgba(249, 115, 22, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  /* Photo stack hover effects */
+  .photo-stack:hover img:nth-child(1) {
+    transform: rotate(-8deg) translateX(-20px);
+  }
+
+  .photo-stack:hover img:nth-child(3) {
+    transform: rotate(8deg) translateX(20px);
+  }
+
+  /* Light mode specific overrides for common patterns */
+  :root.light .bg-black {
+    background-color: var(--bg-primary) !important;
+  }
+
+  :root.light .text-white {
+    color: var(--text-primary) !important;
+  }
+
+  :root.light .text-gray-300,
+  :root.light .text-gray-400 {
+    color: var(--text-secondary) !important;
+  }
+
+  :root.light .text-gray-500,
+  :root.light .text-gray-600 {
+    color: var(--text-muted) !important;
+  }
+
+  :root.light .bg-white\/5,
+  :root.light .bg-white\/\[0\.03\],
+  :root.light .bg-white\/\[0\.05\] {
+    background-color: rgba(0, 0, 0, 0.03) !important;
+  }
+
+  :root.light .bg-white\/\[0\.02\] {
+    background-color: rgba(0, 0, 0, 0.02) !important;
+  }
+
+  :root.light .border-white\/10,
+  :root.light .border-white\/\[0\.06\],
+  :root.light .border-white\/\[0\.08\],
+  :root.light .border-white\/\[0\.1\] {
+    border-color: rgba(0, 0, 0, 0.08) !important;
+  }
+
+  :root.light [class*="bg-[#1a1a1a]"] {
+    background-color: #f5f5f5 !important;
+  }
+
+  :root.light [class*="bg-[#2a2a2a]"] {
+    background-color: #e5e5e5 !important;
+  }
+
+  /* Notched corners for clock cutout effect */
+  .notch-bottom-right {
+    border-bottom-right-radius: 100px;
+  }
+
+  .notch-bottom-left {
+    border-bottom-left-radius: 100px;
+  }
+
+  .notch-top-right {
+    border-top-right-radius: 100px;
+  }
+
+  .notch-top-left {
+    border-top-left-radius: 100px;
+  }
+
+  /* Hide scrollbar for horizontal carousels but keep functionality */
+  .hide-scrollbars {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+  }
+  .hide-scrollbars::-webkit-scrollbar {
+    display: none;             /* Chrome, Safari and Opera */
+  }
+}
