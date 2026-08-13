@@ -14,7 +14,7 @@ export default function WorkHero() {
 
             <div className="relative z-10 text-center px-6 w-full max-w-7xl mx-auto">
                 {/* Giant MY WORKS headline */}
-                <h1 className="text-[20vw] md:text-[18vw] lg:text-[15vw] font-black tracking-tighter leading-[0.85] text-[#EDEDED] mb-16 overflow-hidden flex flex-wrap justify-center gap-[2vw]" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+                <h1 className="text-[14vw] md:text-[18vw] lg:text-[15vw] font-black tracking-tighter leading-[0.85] text-[#EDEDED] mb-16 overflow-hidden flex flex-wrap justify-center gap-[2vw]" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
                     <div className="flex">
                         {"MY".split("").map((char, index) => (
                             <motion.span

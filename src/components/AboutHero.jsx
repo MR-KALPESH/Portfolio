@@ -14,7 +14,7 @@ export default function AboutHero() {
 
             <div className="relative z-10 text-center px-6">
                 {/* Giant ABOUT ME headline */}
-                <h1 className="text-[18vw] md:text-[15vw] lg:text-[12vw] font-black tracking-tighter leading-[0.85] text-[#EDEDED] mb-12 overflow-hidden flex flex-wrap justify-center gap-[3vw]" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+                <h1 className="text-[14vw] md:text-[15vw] lg:text-[12vw] font-black tracking-tighter leading-[0.85] text-[#EDEDED] mb-12 overflow-hidden flex flex-wrap justify-center gap-[3vw]" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
                     <div className="flex">
                         {"ABOUT".split("").map((char, index) => (
                             <motion.span

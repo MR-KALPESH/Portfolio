@@ -41,7 +41,7 @@ export default function BookCall() {
 
                             {/* Giant Headline */}
                             <motion.h1
-                                className="text-[15vw] lg:text-[8vw] font-black tracking-tighter leading-[0.9] mb-12"
+                                className="text-[12vw] sm:text-[14vw] lg:text-[8vw] font-black tracking-tighter leading-[0.9] mb-12"
                                 style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                             >
                                 <motion.span

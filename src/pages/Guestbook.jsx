@@ -110,13 +110,13 @@ export default function Guestbook() {
                                 transition={{ duration: 0.9, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
                             >
                                 <h1
-                                    className="text-[22vw] sm:text-[16vw] lg:text-[13vw] font-black tracking-tighter leading-[0.82] text-white"
+                                    className="text-[15vw] sm:text-[16vw] lg:text-[13vw] font-black tracking-tighter leading-[0.82] text-white"
                                     style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                                 >
                                     GUEST
                                 </h1>
                                 <h1
-                                    className="text-[22vw] sm:text-[16vw] lg:text-[13vw] font-light tracking-tight leading-[0.82] text-gray-400 italic"
+                                    className="text-[15vw] sm:text-[16vw] lg:text-[13vw] font-light tracking-tight leading-[0.82] text-gray-400 italic"
                                     style={{ fontFamily: 'Playfair Display, Georgia, serif' }}
                                 >
                                     book

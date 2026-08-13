@@ -43,7 +43,7 @@ export default function Links() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.8, delay: 0.1 }}
-                            className="text-[12vw] md:text-[10vw] lg:text-[9vw] font-black tracking-tighter leading-[0.85] text-white"
+                            className="text-[10vw] sm:text-[11vw] md:text-[10vw] lg:text-[9vw] font-black tracking-tighter leading-[0.85] text-white"
                             style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                         >
                             MY
@@ -54,7 +54,7 @@ export default function Links() {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ duration: 0.8, delay: 0.2 }}
-                                className="text-[12vw] md:text-[10vw] lg:text-[9vw] font-black tracking-tighter leading-[0.85] text-gray-600"
+                                className="text-[10vw] sm:text-[11vw] md:text-[10vw] lg:text-[9vw] font-black tracking-tighter leading-[0.85] text-gray-600"
                                 style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                             >
                                 DIGITAL
@@ -79,7 +79,7 @@ export default function Links() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ duration: 0.8, delay: 0.3 }}
-                            className="text-[12vw] md:text-[10vw] lg:text-[9vw] font-black tracking-tighter leading-[0.85] text-white"
+                            className="text-[10vw] sm:text-[11vw] md:text-[10vw] lg:text-[9vw] font-black tracking-tighter leading-[0.85] text-white"
                             style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}
                         >
                             PRESENCE
